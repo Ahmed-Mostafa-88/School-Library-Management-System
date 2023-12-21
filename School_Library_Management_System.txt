@@ -1,0 +1,42 @@
+-- Admin Table
+CREATE TABLE Admin (
+    admin_id INT PRIMARY KEY,
+    admin_name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(50),
+    phone VARCHAR(20),
+    gender VARCHAR(10)
+);
+
+CREATE TABLE Book (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(100),
+    book_url VARCHAR(255), 
+    description TEXT, 
+    date_published DATE,
+    publisher BIGINT, 
+    book_request TINYINT(1) ,
+    FOREIGN KEY (publisher) REFERENCES teacher(teacher_id)
+);
+
+
+-- Student Table
+CREATE TABLE Student (
+    student_id BIGINT PRIMARY KEY,
+    student_name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(50),
+    student_level INT,
+    phone VARCHAR(20),
+    block_s TINYINT(1) 
+);
+
+-- Teacher Table
+CREATE TABLE Teacher (
+    teacher_id BIGINT PRIMARY KEY,
+    teacher_name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(50),
+    phone VARCHAR(20),
+    block_t TINYINT(1)
+);
